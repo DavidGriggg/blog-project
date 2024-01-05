@@ -1,4 +1,7 @@
 {
   "translate": "translate",
-  "language": "English"
+  "language": "English",
+  "notFoundPage": "Page not found",
+  "unexpectedError": "An unexpected error has occurred...",
+  "refreshPage": "Refresh the page"
 }
