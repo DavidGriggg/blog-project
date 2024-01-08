@@ -20,7 +20,9 @@ jobs:
         run: npm run build:prod
       - name: linting styles
         run: npm run lint:scss
+        if: always()
       - name: unit testing
+        if: always()
         run: npm run test:unit
       - name: linting styles
         run: npm run lint:scss
