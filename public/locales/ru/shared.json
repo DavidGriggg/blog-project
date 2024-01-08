@@ -1,7 +1,10 @@
 {
   "translate": "Перевести",
   "language": "Русский",
+  "shortLanguage": "Рус",
   "notFoundPage": "Страница не найдена",
   "unexpectedError": "Произошла непредвиденная ошибка...",
-  "refreshPage": "Обновить страницу"
+  "refreshPage": "Обновить страницу",
+  "main": "Главная",
+  "aboutUs": "О нас"
 }
