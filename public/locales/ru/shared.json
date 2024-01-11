@@ -7,5 +7,7 @@
   "refreshPage": "Обновить страницу",
   "main": "Главная",
   "aboutUs": "О нас",
-  "signIn": "Войти"
+  "signIn": "Войти",
+  "enterUsername": "Введите username",
+  "enterPassword": "Введите пароль"
 }

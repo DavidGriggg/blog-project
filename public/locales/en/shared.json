@@ -7,5 +7,7 @@
   "refreshPage": "Refresh the page",
   "main": "Main",
   "aboutUs": "About us",
-  "signIn": "Sign in"
+  "signIn": "Sign in",
+  "enterUsername": "Enter username",
+  "enterPassword": "Enter password"
 }

@@ -4,9 +4,13 @@
 @import "themes/dark";
 
 body {
+  overflow: hidden;
+}
+
+.app,
+.app_modal {
   font: var(--font-m);
   color: var(--primary-color);
-  overflow: hidden;
 }
 
 .app {
