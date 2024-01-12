@@ -41,7 +41,7 @@ export const Input = memo((props: InputProps) => {
             setIsFocused(true);
             ref.current?.focus();
         }
-    });
+    }, [autofocus]);
 
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         onChange?.(e.target.value);

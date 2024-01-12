@@ -8,6 +8,9 @@
   "main": "Main",
   "aboutUs": "About us",
   "signIn": "Sign in",
+  "logOut": "Log out",
   "enterUsername": "Enter username",
-  "enterPassword": "Enter password"
+  "enterPassword": "Enter password",
+  "authForm": "Authorization form",
+  "authIncorrect": "Entered username or password is incorrect"
 }

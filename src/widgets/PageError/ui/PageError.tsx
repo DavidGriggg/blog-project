@@ -8,7 +8,7 @@ interface PageErrorProps {
 }
 
 export const PageError = ({ className }: PageErrorProps) => {
-    const { t } = useTranslation("shared");
+    const { t } = useTranslation();
 
     const reloadPage = () => {
         location.reload();
