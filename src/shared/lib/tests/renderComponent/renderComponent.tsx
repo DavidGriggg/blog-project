@@ -7,6 +7,7 @@ import { DeepPartial } from "@reduxjs/toolkit";
 import i18nForTests, {
     initI18nForTests,
 } from "../../../config/i18n/i18nForTests";
+import { Loader } from "../../../ui/Loader/Loader";
 
 export interface renderComponentOptions {
     route?: string;
@@ -25,7 +26,7 @@ export function renderComponent(
         <StoreProvider initialState={initialState}>
             <MemoryRouter initialEntries={[route]}>
                 <I18nextProvider i18n={i18nForTests}>
-                    <Suspense fallback="">{component}</Suspense>
+                    <Suspense fallback={<Loader />}>{component}</Suspense>
                 </I18nextProvider>
             </MemoryRouter>
         </StoreProvider>,
