@@ -2,7 +2,6 @@
   "": "",
   "aboutUs": "",
   "authForm": "",
-  "authIncorrect": "",
   "enterPassword": "",
   "enterUsername": "",
   "language": "",
@@ -11,6 +10,7 @@
   "main": "",
   "menu": "",
   "notFoundPage": "",
+  "profile": "",
   "refreshPage": "",
   "signIn": "",
   "unexpectedError": ""
