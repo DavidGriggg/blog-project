@@ -33,8 +33,6 @@ export const loginByUsername = createAsyncThunk<
         return response.data;
     } catch (e) {
         console.log(e);
-        return thunkApi.rejectWithValue(
-            i18n.t("authIncorrect", { ns: "shared" }),
-        );
+        return thunkApi.rejectWithValue(i18n.t("authIncorrect"));
     }
 });
