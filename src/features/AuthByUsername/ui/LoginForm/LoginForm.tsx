@@ -1,7 +1,7 @@
 import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./LoginForm.module.scss";
 import { useTranslation } from "react-i18next";
-import { Button, ButtonTheme } from "shared/ui/Button/Button";
+import { Button } from "shared/ui/Button/Button";
 import { Input } from "shared/ui/Input/Input";
 import { useSelector } from "react-redux";
 import { memo, useCallback, useEffect } from "react";
@@ -51,6 +51,7 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
     );
 
     const onLoginClick = useCallback(async () => {
+        // @ts-ignore
         const result = await dispatch(loginByUsername({ username, password }));
         if (result.meta.requestStatus === "fulfilled") {
             onSuccess();
@@ -77,28 +78,27 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
     return (
         <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
             <div className={classNames(cls.LoginForm, {}, [className])}>
-                <Text title={t("authForm")} />
+                <Text title={t("shared:auth.authForm")} />
                 {error && <Text text={error} theme={TextTheme.ERROR} />}
                 <Input
                     className={cls.input}
-                    placeholder={t("enterUsername")}
+                    placeholder={t("shared:auth.enterUsername")}
                     autofocus
                     onChange={onChangeUsername}
                     value={username}
                 />
                 <Input
                     className={cls.input}
-                    placeholder={t("enterPassword")}
+                    placeholder={t("shared:auth.enterPassword")}
                     onChange={onChangePassword}
                     value={password}
                 />
                 <Button
                     className={cls.loginBtn}
-                    theme={ButtonTheme.OUTLINE}
                     onClick={onLoginClick}
                     disabled={isLoading}
                 >
-                    {t("signIn")}
+                    {t("shared:auth.signIn")}
                 </Button>
             </div>
         </DynamicModuleLoader>

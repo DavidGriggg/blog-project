@@ -1,9 +1,9 @@
 import { Suspense } from "react";
 import { StoryObj } from "@storybook/react";
 import { I18nextProvider } from "react-i18next";
-import i18n from "../../../../../config/storybook/i18next";
+import i18n from "/config/storybook/i18next";
 import { initI18nForStorybook } from "../../../../../config/storybook/i18next";
-import { Loader } from "../../../ui/Loader/Loader";
+import { Loader } from "shared/ui/Loader/Loader";
 
 export const I18nDecorator = (StoryComponent: () => StoryObj) => {
     initI18nForStorybook();

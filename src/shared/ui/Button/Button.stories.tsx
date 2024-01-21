@@ -36,14 +36,19 @@ export const ClearInverted: Story = {
 export const Outline: Story = {
     args: {
         children: "Text",
-        theme: ButtonTheme.OUTLINE,
+    },
+};
+
+export const OutlineRed: Story = {
+    args: {
+        children: "Text",
+        theme: ButtonTheme.OUTLINE_RED,
     },
 };
 
 export const OutlineDark: Story = {
     args: {
         children: "Text",
-        theme: ButtonTheme.OUTLINE,
     },
     decorators: [ThemeDecorator(Theme.DARK)],
 };
@@ -51,7 +56,6 @@ export const OutlineDark: Story = {
 export const OutlineSizeL: Story = {
     args: {
         children: "Text",
-        theme: ButtonTheme.OUTLINE,
         size: ButtonSize.L,
     },
 };
@@ -59,7 +63,6 @@ export const OutlineSizeL: Story = {
 export const OutlineSizeXL: Story = {
     args: {
         children: "Text",
-        theme: ButtonTheme.OUTLINE,
         size: ButtonSize.XL,
     },
 };
@@ -107,7 +110,6 @@ export const SquareSizeXL: Story = {
 export const Disabled: Story = {
     args: {
         children: ">",
-        theme: ButtonTheme.OUTLINE,
         disabled: true,
     },
 };

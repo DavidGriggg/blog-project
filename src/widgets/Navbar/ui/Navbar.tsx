@@ -40,7 +40,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                     theme={ButtonTheme.CLEAR_INVERTED}
                     onClick={onLogOut}
                 >
-                    {t("logOut")}
+                    {t("shared:auth.logOut")}
                 </Button>
             </div>
         );
@@ -53,7 +53,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 theme={ButtonTheme.CLEAR_INVERTED}
                 onClick={onShowModal}
             >
-                {t("signIn")}
+                {t("shared:auth.signIn")}
             </Button>
             {isAuthModalOpen && (
                 <LoginModal isOpen={isAuthModalOpen} onClose={onCloseModal} />

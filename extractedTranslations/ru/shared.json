@@ -1,3 +1,23 @@
 {
-  "language": ""
+  "aboutUs": "",
+  "actions": {
+    "cancel": "",
+    "edit": "",
+    "refreshPage": "",
+    "save": ""
+  },
+  "auth": {
+    "authForm": "",
+    "enterPassword": "",
+    "enterUsername": "",
+    "logOut": "",
+    "signIn": ""
+  },
+  "language": "",
+  "logOut": "",
+  "main": "",
+  "notFoundPage": "",
+  "signIn": "",
+  "tryRefresh": "",
+  "unexpectedError": ""
 }

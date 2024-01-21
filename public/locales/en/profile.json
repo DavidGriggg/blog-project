@@ -1,0 +1,12 @@
+{
+  "menu": "Profile",
+  "yourFirstname": "Your firstname",
+  "yourLastname": "Your lastname",
+  "yourAge": "Your age",
+  "yourCity": "Your city",
+  "yourUsername": "Your username",
+  "yourAvatar": "Your avatar link",
+  "yourCurrency": "Your currency",
+  "yourCountry": "Your country",
+  "fetchProfileError": "An error has occurred while fetching profile data"
+}

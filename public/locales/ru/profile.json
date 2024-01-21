@@ -1,0 +1,12 @@
+{
+  "menu": "Профиль",
+  "yourFirstname": "Ваше имя",
+  "yourLastname": "Ваша фамилия",
+  "yourAge": "Ваш возраст",
+  "yourCity": "Ваш город",
+  "yourUsername": "Ваше имя пользователя",
+  "yourAvatar": "Ваша ссылка на аватар",
+  "yourCurrency": "Ваша валюта",
+  "yourCountry": "Ваша страна",
+  "fetchProfileError": "Произошла ошибка при загрузке профиля"
+}

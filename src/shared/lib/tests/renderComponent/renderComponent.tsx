@@ -6,8 +6,8 @@ import { StateSchema, StoreProvider } from "app/providers/StoreProvider";
 import { DeepPartial } from "@reduxjs/toolkit";
 import i18nForTests, {
     initI18nForTests,
-} from "../../../config/i18n/i18nForTests";
-import { Loader } from "../../../ui/Loader/Loader";
+} from "shared/config/i18n/i18nForTests";
+import { Loader } from "shared/ui/Loader/Loader";
 
 export interface renderComponentOptions {
     route?: string;
@@ -23,12 +23,12 @@ export function renderComponent(
     initI18nForTests();
 
     return render(
-        <StoreProvider initialState={initialState}>
-            <MemoryRouter initialEntries={[route]}>
+        <MemoryRouter initialEntries={[route]}>
+            <StoreProvider initialState={initialState}>
                 <I18nextProvider i18n={i18nForTests}>
                     <Suspense fallback={<Loader />}>{component}</Suspense>
                 </I18nextProvider>
-            </MemoryRouter>
-        </StoreProvider>,
+            </StoreProvider>
+        </MemoryRouter>,
     );
 }

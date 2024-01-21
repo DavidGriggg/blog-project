@@ -1,15 +1,11 @@
-/*
- * For a detailed explanation regarding each configuration property, visit:
- * https://jestjs.io/docs/configuration
- */
-
 import path from "path";
 
 export default {
-    globals: { __IS_DEV__: true },
+    globals: { __IS_DEV__: true, __API__: "" },
     testEnvironment: "jsdom",
     clearMocks: true,
     coveragePathIgnorePatterns: ["/node_modules/"],
+    transformIgnorePatterns: ["/node_modules/(?!(axios)/)"],
     moduleDirectories: ["node_modules", "."],
     moduleFileExtensions: ["js", "jsx", "ts", "tsx", "json", "node"],
     modulePaths: ["<rootDir>src"],

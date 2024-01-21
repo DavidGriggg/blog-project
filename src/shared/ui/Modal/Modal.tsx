@@ -6,7 +6,7 @@ import {
     useEffect,
     useCallback,
 } from "react";
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames, Modes } from "shared/lib/classNames/classNames";
 import cls from "./Modal.module.scss";
 import { Portal } from "shared/ui/Portal/Portal";
 import { useTheme } from "app/providers/ThemeProvider";
@@ -69,7 +69,7 @@ export const Modal = (props: ModalProps) => {
         };
     }, [isOpen, onKeyDown]);
 
-    const modes: Record<string, boolean> = {
+    const modes: Modes = {
         [cls.opened]: isOpen,
         [cls.isClosing]: isClosing,
     };
@@ -79,7 +79,7 @@ export const Modal = (props: ModalProps) => {
     }
 
     return (
-        <Portal>
+        <Portal element={document.body}>
             <div
                 className={classNames(cls.Modal, modes, [
                     className,

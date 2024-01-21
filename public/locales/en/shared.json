@@ -1,17 +1,23 @@
 {
-  "translate": "translate",
   "language": "English",
   "shortLanguage": "En",
   "notFoundPage": "Page not found",
   "unexpectedError": "An unexpected error has occurred...",
-  "refreshPage": "Refresh the page",
   "main": "Main",
   "aboutUs": "About us",
-  "profile": "Profile",
-  "signIn": "Sign in",
-  "logOut": "Log out",
-  "enterUsername": "Enter username",
-  "enterPassword": "Enter password",
-  "authForm": "Authorization form",
-  "authIncorrect": "Entered username or password is incorrect"
+  "auth": {
+    "signIn": "Sign in",
+    "logOut": "Log out",
+    "enterUsername": "Enter username",
+    "enterPassword": "Enter password",
+    "authForm": "Authorization form",
+    "authIncorrect": "Entered username or password is incorrect"
+  },
+  "actions": {
+    "refreshPage": "Refresh the page",
+    "edit": "Edit",
+    "cancel": "Cancel",
+    "save": "Save"
+  },
+  "tryRefresh": "Try to refresh the page"
 }

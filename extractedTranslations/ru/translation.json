@@ -1,9 +1,23 @@
 {
   "": "",
   "aboutUs": "",
+  "actions": {
+    "edit": "",
+    "refreshPage": ""
+  },
+  "auth": {
+    "authForm": "",
+    "enterPassword": "",
+    "enterUsername": "",
+    "logOut": "",
+    "signIn": ""
+  },
   "authForm": "",
+  "edit": "",
+  "enterFirstname": "",
   "enterPassword": "",
   "enterUsername": "",
+  "fetchProfileError": "",
   "language": "",
   "leave": "",
   "logOut": "",
@@ -13,5 +27,11 @@
   "profile": "",
   "refreshPage": "",
   "signIn": "",
-  "unexpectedError": ""
+  "tryRefresh": "",
+  "unexpectedError": "",
+  "Введите username": "",
+  "Введите пароль": "",
+  "Войти": "",
+  "Вы ввели неверный логин или пароль": "",
+  "Форма авторизации": ""
 }

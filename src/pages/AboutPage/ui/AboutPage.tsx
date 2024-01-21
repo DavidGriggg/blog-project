@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 const AboutPage = memo(() => {
     const { t } = useTranslation();
 
-    return <div>{t("aboutUs")}</div>;
+    return <div>{t("shared:aboutUs")}</div>;
 });
 
 export default AboutPage;

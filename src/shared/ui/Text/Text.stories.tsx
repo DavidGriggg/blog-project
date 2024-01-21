@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import { Theme } from "app/providers/ThemeProvider";
-import { Text as IText, TextTheme } from "./Text";
+import { Text as IText, TextAlign, TextTheme } from "./Text";
 
 const meta = {
     title: "shared/Text",
@@ -69,6 +69,30 @@ export const OnlyTextDark: Story = {
         text: "Some text Some text Some text",
     },
     decorators: [ThemeDecorator(Theme.DARK)],
+};
+
+export const AlignLeft: Story = {
+    args: {
+        title: "Some title",
+        text: "Some text Some text Some text",
+        align: TextAlign.LEFT,
+    },
+};
+
+export const AlignRight: Story = {
+    args: {
+        title: "Some title",
+        text: "Some text Some text Some text",
+        align: TextAlign.RIGHT,
+    },
+};
+
+export const AlignCenter: Story = {
+    args: {
+        title: "Some title",
+        text: "Some text Some text Some text",
+        align: TextAlign.CENTER,
+    },
 };
 
 export default meta;
