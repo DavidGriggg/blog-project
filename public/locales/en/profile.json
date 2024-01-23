@@ -8,5 +8,11 @@
   "yourAvatar": "Your avatar link",
   "yourCurrency": "Your currency",
   "yourCountry": "Your country",
-  "fetchProfileError": "An error has occurred while fetching profile data"
+  "fetchProfileError": "An error has occurred while fetching profile data",
+  "errors": {
+    "INCORRECT_USER_DATA": "Incorrect firstname or lastname",
+    "INCORRECT_AGE": "Incorrect age",
+    "NO_DATA": "No data",
+    "SERVER_ERROR": "A server error has occurred"
+  }
 }

@@ -10,6 +10,7 @@ import {
     getProfileForm,
     getProfileIsLoading,
     getProfileReadOnly,
+    getProfileValidateErrors,
     profileActions,
     ProfileCard,
     profileReducer,
@@ -19,6 +20,8 @@ import { useSelector } from "react-redux";
 import { ProfilePageHeader } from "./ProfilePageHeader/ProfilePageHeader";
 import { Currency } from "../../../entities/Currency";
 import { Country } from "../../../entities/Country";
+import { Text, TextTheme } from "shared/ui/Text/Text";
+import { useTranslation } from "react-i18next";
 
 const reducers: ReducersList = {
     profile: profileReducer,
@@ -29,15 +32,19 @@ interface ProfilePageProps {
 }
 
 const ProfilePage = memo(({ className }: ProfilePageProps) => {
+    const { t } = useTranslation();
     const dispatch = useAppDispatch();
     const formData = useSelector(getProfileForm);
     const isLoading = useSelector(getProfileIsLoading);
     const error = useSelector(getProfileError);
     const readOnly = useSelector(getProfileReadOnly);
+    const validateErrors = useSelector(getProfileValidateErrors);
 
     useEffect(() => {
-        // @ts-ignore
-        dispatch(fetchProfileData());
+        if (__PROJECT__ !== "storybook") {
+            // @ts-ignore
+            dispatch(fetchProfileData());
+        }
     }, [dispatch]);
 
     const onChangeFirstname = useCallback(
@@ -100,6 +107,14 @@ const ProfilePage = memo(({ className }: ProfilePageProps) => {
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <div className={classNames("", {}, [className])}>
                 <ProfilePageHeader />
+                {validateErrors?.length &&
+                    validateErrors.map((err) => (
+                        <Text
+                            theme={TextTheme.ERROR}
+                            text={t(`profile:errors.${err}`)}
+                            key={err}
+                        />
+                    ))}
                 <ProfileCard
                     data={formData}
                     isLoading={isLoading}

@@ -2,7 +2,7 @@ import { userActions } from "entities/User";
 import { TestAsyncThunk } from "shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
 import { loginByUsername } from "./loginByUsername";
 
-describe("loginByUsername.test", () => {
+describe("loginByUsername", () => {
     // let dispatch: Dispatch;
     // let getState: () => StateSchema;
     //
@@ -53,7 +53,6 @@ describe("loginByUsername.test", () => {
         expect(result.meta.requestStatus).toBe("fulfilled");
         expect(result.payload).toEqual(userValue);
     });
-
     test("error login", async () => {
         const thunk = new TestAsyncThunk(loginByUsername);
         thunk.api.post.mockResolvedValue(Promise.resolve({ status: 403 }));
