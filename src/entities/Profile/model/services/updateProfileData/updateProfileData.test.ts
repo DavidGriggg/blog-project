@@ -5,6 +5,7 @@ import { Currency } from "entities/Currency";
 import { ValidateProfileError } from "entities/Profile/model/types/profile";
 
 const data = {
+    id: "1",
     username: "hansen",
     age: 25,
     country: Country.Spain,

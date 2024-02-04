@@ -76,7 +76,7 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
     }, [onKeyDown]);
 
     return (
-        <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
+        <DynamicModuleLoader reducers={initialReducers}>
             <div className={classNames(cls.LoginForm, {}, [className])}>
                 <Text title={t("shared:auth.authForm")} />
                 {error && <Text text={error} theme={TextTheme.ERROR} />}

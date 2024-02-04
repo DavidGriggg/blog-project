@@ -5,12 +5,14 @@ import { Text } from "shared/ui/Text/Text";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { useSelector } from "react-redux";
 import {
+    getProfileData,
     getProfileReadOnly,
     profileActions,
     updateProfileData,
 } from "entities/Profile";
 import { useCallback } from "react";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
+import { getUserAuthData } from "entities/User";
 
 interface ProfilePageHeaderProps {
     className?: string;
@@ -18,6 +20,11 @@ interface ProfilePageHeaderProps {
 
 export const ProfilePageHeader = ({ className }: ProfilePageHeaderProps) => {
     const { t } = useTranslation();
+
+    const authData = useSelector(getUserAuthData);
+    const profileData = useSelector(getProfileData);
+    const canEdit = authData?.id === profileData?.id;
+
     const readOnly = useSelector(getProfileReadOnly);
 
     const dispatch = useAppDispatch();
@@ -38,21 +45,27 @@ export const ProfilePageHeader = ({ className }: ProfilePageHeaderProps) => {
     return (
         <div className={classNames(cls.ProfilePageHeader, {}, [className])}>
             <Text title={t("profile:menu")} />
-            {readOnly ? (
-                <Button className={cls.btn} onClick={onEdit}>
-                    {t("shared:actions.edit")}
-                </Button>
-            ) : (
-                <>
-                    <Button
-                        className={cls.btn}
-                        theme={ButtonTheme.OUTLINE_RED}
-                        onClick={onCancelEdit}
-                    >
-                        {t("shared:actions.cancel")}
-                    </Button>
-                    <Button onClick={onSave}>{t("shared:actions.save")}</Button>
-                </>
+            {canEdit && (
+                <div className={cls.btnsWrapper}>
+                    {readOnly ? (
+                        <Button className={cls.btn} onClick={onEdit}>
+                            {t("shared:actions.edit")}
+                        </Button>
+                    ) : (
+                        <>
+                            <Button
+                                className={cls.btn}
+                                theme={ButtonTheme.OUTLINE_RED}
+                                onClick={onCancelEdit}
+                            >
+                                {t("shared:actions.cancel")}
+                            </Button>
+                            <Button onClick={onSave}>
+                                {t("shared:actions.save")}
+                            </Button>
+                        </>
+                    )}
+                </div>
             )}
         </div>
     );

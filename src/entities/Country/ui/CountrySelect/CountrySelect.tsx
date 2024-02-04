@@ -30,7 +30,7 @@ export const CountrySelect = memo(
         return (
             <div className={classNames("Select", {}, [className])}>
                 <Select
-                    label={t("profile:yourCurrency")}
+                    label={t("profile:yourCountry")}
                     options={options}
                     value={value || Country.Russia}
                     onChange={onChangeHandler}

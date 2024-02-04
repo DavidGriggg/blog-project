@@ -1,5 +1,5 @@
 import { classNames } from "shared/lib/classNames/classNames";
-import { memo, useCallback, useEffect } from "react";
+import { memo, useCallback } from "react";
 import {
     DynamicModuleLoader,
     ReducersList,
@@ -22,6 +22,8 @@ import { Currency } from "../../../entities/Currency";
 import { Country } from "../../../entities/Country";
 import { Text, TextTheme } from "shared/ui/Text/Text";
 import { useTranslation } from "react-i18next";
+import { useInitialEffect } from "../../../shared/lib/useInitialEffect/useInitialEffect";
+import { useParams } from "react-router-dom";
 
 const reducers: ReducersList = {
     profile: profileReducer,
@@ -40,12 +42,14 @@ const ProfilePage = memo(({ className }: ProfilePageProps) => {
     const readOnly = useSelector(getProfileReadOnly);
     const validateErrors = useSelector(getProfileValidateErrors);
 
-    useEffect(() => {
-        if (__PROJECT__ !== "storybook") {
+    const { id } = useParams<{ id: string }>();
+
+    useInitialEffect(() => {
+        if (id) {
             // @ts-ignore
-            dispatch(fetchProfileData());
+            dispatch(fetchProfileData(id));
         }
-    }, [dispatch]);
+    });
 
     const onChangeFirstname = useCallback(
         (value?: string) => {
@@ -104,7 +108,7 @@ const ProfilePage = memo(({ className }: ProfilePageProps) => {
     );
 
     return (
-        <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+        <DynamicModuleLoader reducers={reducers}>
             <div className={classNames("", {}, [className])}>
                 <ProfilePageHeader />
                 {validateErrors?.length &&

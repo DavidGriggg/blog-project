@@ -17,7 +17,13 @@
     "refreshPage": "Refresh the page",
     "edit": "Edit",
     "cancel": "Cancel",
-    "save": "Save"
+    "save": "Save",
+    "submit": "Submit",
+    "readMore": "Read more...",
+    "backToList": "Back to the list"
   },
-  "tryRefresh": "Try to refresh the page"
+  "tryRefresh": "Try to refresh the page",
+  "comments": "Comments",
+  "noComments": "There are no comments",
+  "typeComment": "Type a comment"
 }

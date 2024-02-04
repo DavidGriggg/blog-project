@@ -18,7 +18,7 @@ export const updateProfileData = createAsyncThunk<
 
     try {
         const response = await thunkApi.extra.api.put<Profile>(
-            "/profile",
+            `/profile/${formData?.id}`,
             formData,
         );
 

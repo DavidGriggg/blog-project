@@ -1,10 +1,13 @@
 {
   "aboutUs": "",
   "actions": {
+    "backToList": "",
     "cancel": "",
     "edit": "",
+    "readMore": "",
     "refreshPage": "",
-    "save": ""
+    "save": "",
+    "submit": ""
   },
   "auth": {
     "authForm": "",
@@ -13,11 +16,15 @@
     "logOut": "",
     "signIn": ""
   },
+  "comments": "",
   "language": "",
   "logOut": "",
   "main": "",
+  "noComments": "",
   "notFoundPage": "",
+  "readMore": "",
   "signIn": "",
   "tryRefresh": "",
+  "typeComment": "",
   "unexpectedError": ""
 }

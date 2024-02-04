@@ -5,6 +5,7 @@
     "edit": "",
     "refreshPage": ""
   },
+  "ar": "",
   "auth": {
     "authForm": "",
     "enterPassword": "",
@@ -23,6 +24,7 @@
   "logOut": "",
   "main": "",
   "menu": "",
+  "noComments": "",
   "notFoundPage": "",
   "profile": "",
   "refreshPage": "",
