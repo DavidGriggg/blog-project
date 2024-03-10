@@ -1,5 +1,6 @@
 {
   "": "",
+  "News app": "",
   "aboutUs": "",
   "actions": {
     "edit": "",
@@ -14,6 +15,7 @@
     "signIn": ""
   },
   "authForm": "",
+  "authIncorrect": "",
   "edit": "",
   "enterFirstname": "",
   "enterPassword": "",
@@ -31,9 +33,11 @@
   "signIn": "",
   "tryRefresh": "",
   "unexpectedError": "",
+  "yourFeedback": "",
   "Введите username": "",
   "Введите пароль": "",
   "Войти": "",
   "Вы ввели неверный логин или пароль": "",
+  "Статьи не найдены": "",
   "Форма авторизации": ""
 }

@@ -1,12 +1,12 @@
 import { memo, useCallback } from "react";
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 import cls from "./AddCommentForm.module.scss";
 import { useTranslation } from "react-i18next";
-import { Input } from "shared/ui/Input/Input";
-import { Button } from "shared/ui/Button/Button";
+import { Input } from "@/shared/ui/Input";
+import { Button } from "@/shared/ui/Button";
 import { useSelector } from "react-redux";
 import { getAddCommentFormText } from "../../model/selectors/addCommentFormSelectors";
-import { useAppDispatch } from "../../../../shared/lib/hooks/useAppDispatch/useAppDispatch";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import {
     addCommentFormActions,
     addCommentFormReducer,
@@ -14,7 +14,8 @@ import {
 import {
     DynamicModuleLoader,
     ReducersList,
-} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+} from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import { HStack } from "@/shared/ui/Stack";
 
 interface AddCommentFormProps {
     className?: string;
@@ -45,8 +46,10 @@ const AddCommentForm = memo(
 
         return (
             <DynamicModuleLoader reducers={reducers}>
-                <div
+                <HStack
                     className={classNames(cls.AddCommentForm, {}, [className])}
+                    justify="between"
+                    max
                 >
                     <Input
                         className={cls.input}
@@ -57,7 +60,7 @@ const AddCommentForm = memo(
                     <Button onClick={onSendHandler}>
                         {t("shared:actions.submit")}
                     </Button>
-                </div>
+                </HStack>
             </DynamicModuleLoader>
         );
     },

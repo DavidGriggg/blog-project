@@ -1,5 +1,17 @@
 {
   "menu": "Articles",
   "notFound": "Article is not found",
-  "errorOccurred": "An error occurred while loading the article"
+  "error": "Error while loading articles",
+  "noArticles": "Articles are not found",
+  "errorOccurred": "An error occurred while loading the article",
+  "recommended": "Recommended",
+  "create": "Create article",
+  "types": {
+    "all": "All articles",
+    "sports": "Sports",
+    "IT": "IT",
+    "science": "Science"
+  },
+  "estimate": "Estimate the article",
+  "leaveFeedback": "Leave a feedback about the article, it will help us to improve the quality"
 }

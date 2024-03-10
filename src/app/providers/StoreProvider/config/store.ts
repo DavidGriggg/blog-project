@@ -5,30 +5,32 @@ import {
     Reducer,
 } from "@reduxjs/toolkit";
 import { StateSchema, ThunkExtraArg } from "./StateSchema";
-import { userReducer } from "entities/User";
-import { createReducerManager } from "app/providers/StoreProvider/config/reducerManager";
-import { $api } from "shared/api/api";
-import { NavigateOptions, To } from "react-router-dom";
+import { userReducer } from "@/entities/User";
+import { scrollSaveReducer } from "@/features/ScrollSave";
+import { createReducerManager } from "@/app/providers/StoreProvider/config/reducerManager";
+import { $api } from "@/shared/api/api";
+import { rtkApi } from "@/shared/api/rtkApi";
 
 export function createReduxStore(
     initialState?: StateSchema,
     asyncReducers?: ReducersMapObject<StateSchema>,
-    navigate?: (to: To, options?: NavigateOptions) => void,
 ) {
+    // @ts-ignore
     const rootReducer: ReducersMapObject<StateSchema> = {
         ...asyncReducers,
         user: userReducer,
+        scrollSave: scrollSaveReducer,
+        [rtkApi.reducerPath]: rtkApi.reducer,
     };
 
     const reducerManager = createReducerManager(rootReducer);
 
     const extraArg: ThunkExtraArg = {
         api: $api,
-        navigate,
     };
 
+    // @ts-ignore
     const store = configureStore<StateSchema>({
-        // @ts-ignore
         reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>,
         devTools: __IS_DEV__,
         preloadedState: initialState,
@@ -38,7 +40,7 @@ export function createReduxStore(
                 thunk: {
                     extraArgument: extraArg,
                 },
-            }),
+            }).concat(rtkApi.middleware),
     });
 
     // @ts-ignore

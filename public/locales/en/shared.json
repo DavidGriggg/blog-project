@@ -5,6 +5,8 @@
   "unexpectedError": "An unexpected error has occurred...",
   "main": "Main",
   "aboutUs": "About us",
+  "adminPanel": "Admin panel",
+  "noAccess": "You don't have access to this page",
   "auth": {
     "signIn": "Sign in",
     "logOut": "Log out",
@@ -17,13 +19,24 @@
     "refreshPage": "Refresh the page",
     "edit": "Edit",
     "cancel": "Cancel",
+    "close": "Close",
     "save": "Save",
     "submit": "Submit",
     "readMore": "Read more...",
-    "backToList": "Back to the list"
+    "backToList": "Back to the list",
+    "sortBy": "Sort by"
   },
   "tryRefresh": "Try to refresh the page",
   "comments": "Comments",
   "noComments": "There are no comments",
-  "typeComment": "Type a comment"
+  "typeComment": "Type a comment",
+  "search": "Search",
+  "by": "by",
+  "ascending": "ascending",
+  "descending": "descending",
+  "byCreationDate": "date of creation",
+  "byTitle": "title",
+  "byViews": "views",
+  "yourFeedback": "Your feedback",
+  "estimated": "Thank you for estimation!"
 }

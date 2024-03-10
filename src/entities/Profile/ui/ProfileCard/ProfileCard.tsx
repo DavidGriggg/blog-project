@@ -1,13 +1,14 @@
-import { classNames, Modes } from "shared/lib/classNames/classNames";
+import { classNames, Modes } from "@/shared/lib/classNames/classNames";
 import cls from "./ProfileCard.module.scss";
 import { useTranslation } from "react-i18next";
-import { Text, TextAlign, TextTheme } from "shared/ui/Text/Text";
-import { Input } from "shared/ui/Input/Input";
-import { Profile } from "../../model/types/profile";
-import { Loader } from "shared/ui/Loader/Loader";
-import { Avatar } from "shared/ui/Avatar/Avatar";
-import { Currency, CurrencySelect } from "entities/Currency";
-import { Country, CountrySelect } from "entities/Country";
+import { Text, TextAlign, TextTheme } from "@/shared/ui/Text";
+import { Input } from "@/shared/ui/Input";
+import { Loader } from "@/shared/ui/Loader";
+import { Avatar } from "@/shared/ui/Avatar";
+import { Currency, CurrencySelect } from "@/entities/Currency";
+import { Country, CountrySelect } from "@/entities/Country";
+import { HStack, VStack } from "@/shared/ui/Stack";
+import { Profile } from "@/entities/Profile";
 
 interface ProfileCardProps {
     className?: string;
@@ -58,12 +59,14 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
     if (error) {
         return (
-            <div
+            <HStack
                 className={classNames(
                     cls.ProfileCard,
                     { [cls.loading]: true },
                     [className, cls.error],
                 )}
+                justify="center"
+                max
             >
                 <Text
                     theme={TextTheme.ERROR}
@@ -71,7 +74,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     text={t("shared:tryRefresh")}
                     align={TextAlign.CENTER}
                 />
-            </div>
+            </HStack>
         );
     }
 
@@ -80,66 +83,64 @@ export const ProfileCard = (props: ProfileCardProps) => {
     };
 
     return (
-        <div className={classNames(cls.ProfileCard, modes, [className])}>
+        <VStack
+            gap="16"
+            max
+            className={classNames(cls.ProfileCard, modes, [className])}
+        >
             {data?.avatar && (
-                <div className={cls.AvatarWrapper}>
+                <HStack justify="center" max>
                     <Avatar src={data.avatar || ""} size={150} />
-                </div>
+                </HStack>
             )}
             <Input
-                className={cls.input}
                 value={data?.first}
                 placeholder={t("profile:yourFirstname")}
                 readOnly={Boolean(readOnly)}
                 onChange={onChangeFirstname}
+                data-testid="ProfileCard.firstname"
             />
             <Input
-                className={cls.input}
                 value={data?.lastname}
                 placeholder={t("profile:yourLastname")}
                 readOnly={Boolean(readOnly)}
                 onChange={onChangeLastname}
+                data-testid="ProfileCard.lastname"
             />
             <Input
-                className={cls.input}
                 value={data?.age}
                 placeholder={t("profile:yourAge")}
                 readOnly={Boolean(readOnly)}
                 onChange={onChangeAge}
             />
             <Input
-                className={cls.input}
                 value={data?.city}
                 placeholder={t("profile:yourCity")}
                 readOnly={Boolean(readOnly)}
                 onChange={onChangeCity}
             />
             <Input
-                className={cls.input}
                 value={data?.username}
                 placeholder={t("profile:yourUsername")}
                 readOnly={Boolean(readOnly)}
                 onChange={onChangeUsername}
             />
             <Input
-                className={cls.input}
                 value={data?.avatar}
                 placeholder={t("profile:yourAvatar")}
                 readOnly={Boolean(readOnly)}
                 onChange={onChangeAvatar}
             />
             <CurrencySelect
-                className={cls.input}
                 value={data?.currency || Currency.RUB}
                 onChange={onChangeCurrency}
                 readOnly={Boolean(readOnly)}
             />
             <CountrySelect
-                className={cls.input}
                 value={data?.country || Country.Russia}
                 onChange={onChangeCountry}
                 readOnly={Boolean(readOnly)}
             />
-        </div>
+        </VStack>
     );
 };

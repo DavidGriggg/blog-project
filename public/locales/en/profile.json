@@ -9,6 +9,7 @@
   "yourCurrency": "Your currency",
   "yourCountry": "Your country",
   "fetchProfileError": "An error has occurred while fetching profile data",
+  "notFound": "Profile is not found",
   "errors": {
     "INCORRECT_USER_DATA": "Incorrect firstname or lastname",
     "INCORRECT_AGE": "Incorrect age",

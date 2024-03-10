@@ -1,4 +1,4 @@
-import { StateSchema } from "app/providers/StoreProvider";
+import { StateSchema } from "@/app/providers/StoreProvider";
 import { AsyncThunkAction } from "@reduxjs/toolkit";
 import axios, { AxiosStatic } from "axios";
 
@@ -29,6 +29,7 @@ export class TestAsyncThunk<Return, Arg, RejectedValue> {
         this.dispatch = jest.fn();
         this.getState = jest.fn(() => state as StateSchema);
 
+        // @ts-ignore
         this.api = mockedAxios;
         this.navigate = jest.fn();
     }

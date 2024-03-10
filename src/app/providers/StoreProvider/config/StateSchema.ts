@@ -1,9 +1,12 @@
-import { UserSchema } from "entities/User";
-import { ProfileSchema } from "entities/Profile";
-import { ArticleDetailsSchema } from "entities/Article";
-import { LoginSchema } from "features/AuthByUsername";
-import { AddCommentFormSchema } from "features/addCommentForm";
-import { ArticleDetailsCommentsSchema } from "pages/ArticleDetailsPage";
+import { UserSchema } from "@/entities/User";
+import { ProfileSchema } from "@/features/editableProfileCard";
+import { ArticleDetailsSchema } from "@/entities/Article";
+import { LoginSchema } from "@/features/AuthByUsername";
+import { AddCommentFormSchema } from "@/features/addCommentForm";
+import { ArticleDetailsPageSchema } from "@/pages/ArticleDetailsPage";
+import { ArticlesPageSchema } from "@/pages/ArticlesPage";
+import { ScrollSaveSchema } from "@/features/ScrollSave";
+
 import {
     AnyAction,
     EmptyObject,
@@ -12,26 +15,31 @@ import {
     ReducersMapObject,
 } from "@reduxjs/toolkit";
 import { AxiosInstance } from "axios";
-import { NavigateOptions, To } from "react-router-dom";
+import { rtkApi } from "@/shared/api/rtkApi";
 
 export interface StateSchema {
     user: UserSchema;
+    scrollSave: ScrollSaveSchema;
+    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
 
     // Async reducers
     loginForm?: LoginSchema;
     profile?: ProfileSchema;
     articleDetails?: ArticleDetailsSchema;
-    articleDetailsComments?: ArticleDetailsCommentsSchema;
     addCommentForm?: AddCommentFormSchema;
+    articlesPage?: ArticlesPageSchema;
+    articleDetailsPage?: ArticleDetailsPageSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;
+export type MountedReducers = OptionalRecord<StateSchemaKey, boolean>;
 
 export interface ReducerManager {
     getReducerMap: () => ReducersMapObject<StateSchema>;
     reduce: (state: StateSchema, action: AnyAction) => EmptyObject;
     add: (key: StateSchemaKey, reducer: Reducer) => void;
     remove: (key: StateSchemaKey) => void;
+    getMountedReducers: () => MountedReducers;
 }
 
 export interface StoreWithManager extends EnhancedStore<StateSchema> {
@@ -40,7 +48,6 @@ export interface StoreWithManager extends EnhancedStore<StateSchema> {
 
 export interface ThunkExtraArg {
     api: AxiosInstance;
-    navigate?: (to: To, options?: NavigateOptions) => void;
 }
 
 export interface ThunkConfig<T> {

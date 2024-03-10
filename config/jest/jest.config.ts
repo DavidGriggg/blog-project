@@ -17,6 +17,18 @@ export default {
         "\\.svg": path.resolve(__dirname, "jestEmptyComponent.tsx"),
         "^axios$": require.resolve("axios"),
     },
+    reporters: [
+        "default",
+        [
+            "jest-html-reporters",
+            {
+                publicPath: "<rootDir>/reports/unit",
+                filename: "report.html",
+                openReport: true,
+                inlineSource: true,
+            },
+        ],
+    ],
     // transformIgnorePatterns: ["node_modules/(?!axios)"],
     // All imported modules in your tests should be mocked automatically
     // automock: false,

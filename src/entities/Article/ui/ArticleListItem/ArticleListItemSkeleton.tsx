@@ -1,9 +1,9 @@
 import { memo } from "react";
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 import cls from "./ArticleListItem.module.scss";
-import { ArticleView } from "../../model/types/article";
-import { Card } from "shared/ui/Card/Card";
-import { Skeleton } from "shared/ui/Skeleton/Skeleton";
+import { Card } from "@/shared/ui/Card";
+import { Skeleton } from "@/shared/ui/Skeleton";
+import { ArticleView } from "@/entities/Article";
 
 interface ArticleListItemSkeletonProps {
     className?: string;
@@ -16,12 +16,7 @@ export const ArticleListItemSkeleton = memo(
 
         if (view === ArticleView.BIG) {
             return (
-                <div
-                    className={classNames(cls.ArticleListItem, {}, [
-                        className,
-                        cls[view],
-                    ])}
-                >
+                <div className={classNames("", {}, [className, cls[view]])}>
                     <Card className={cls.card}>
                         <div className={cls.header}>
                             <Skeleton
@@ -55,12 +50,7 @@ export const ArticleListItemSkeleton = memo(
         }
 
         return (
-            <div
-                className={classNames(cls.ArticleListItem, {}, [
-                    className,
-                    cls[view],
-                ])}
-            >
+            <div className={classNames("", {}, [className, cls[view]])}>
                 <Card>
                     <div className={cls.imageWrapper}>
                         <Skeleton

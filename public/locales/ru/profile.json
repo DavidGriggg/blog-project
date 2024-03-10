@@ -9,6 +9,7 @@
   "yourCurrency": "Ваша валюта",
   "yourCountry": "Ваша страна",
   "fetchProfileError": "Произошла ошибка при загрузке профиля",
+  "notFound": "Профиль не найден",
   "errors": {
     "INCORRECT_USER_DATA": "Некорректное имя или фамилия",
     "INCORRECT_AGE": "Некорректный возраст",

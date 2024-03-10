@@ -1,4 +1,4 @@
-import { classNames, Modes } from "shared/lib/classNames/classNames";
+import { classNames, Modes } from "@/shared/lib/classNames/classNames";
 import { ButtonHTMLAttributes, FC, memo } from "react";
 import cls from "./Button.module.scss";
 
@@ -23,9 +23,10 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     square?: boolean;
     size?: ButtonSize;
     disabled?: boolean;
+    fullWidth?: boolean;
 }
 
-export const Button: FC<ButtonProps> = memo((props) => {
+export const Button: FC<ButtonProps> = memo((props: ButtonProps) => {
     const {
         children,
         className,
@@ -33,6 +34,7 @@ export const Button: FC<ButtonProps> = memo((props) => {
         square,
         disabled,
         size = ButtonSize.M,
+        fullWidth,
         ...otherProps
     } = props;
 
@@ -41,6 +43,7 @@ export const Button: FC<ButtonProps> = memo((props) => {
         [cls.square]: square,
         [cls[size]]: true,
         [cls.disabled]: disabled,
+        [cls.fullwidth]: fullWidth,
     };
 
     return (

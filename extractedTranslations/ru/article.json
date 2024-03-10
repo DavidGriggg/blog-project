@@ -1,4 +1,17 @@
 {
+  "create": "",
+  "error": "",
   "errorOccurred": "",
-  "notFound": ""
+  "estimate": "",
+  "leaveFeedback": "",
+  "noArticles": "",
+  "notFound": "",
+  "recommended": "",
+  "types": {
+    "IT": "",
+    "all": "",
+    "sc": "",
+    "science": "",
+    "sports": ""
+  }
 }

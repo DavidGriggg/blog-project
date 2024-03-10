@@ -1,8 +1,7 @@
 import { useTranslation } from "react-i18next";
-import { Select } from "shared/ui/Select/Select";
 import { memo, useCallback } from "react";
-import { classNames } from "shared/lib/classNames/classNames";
-import { Country } from "../../model/types/country";
+import { Country } from "@/entities/Country";
+import { IListBox } from "@/shared/ui/Popups";
 
 interface CountrySelectProps {
     className?: string;
@@ -28,15 +27,16 @@ export const CountrySelect = memo(
         }, []);
 
         return (
-            <div className={classNames("Select", {}, [className])}>
-                <Select
-                    label={t("profile:yourCountry")}
-                    options={options}
-                    value={value || Country.Russia}
-                    onChange={onChangeHandler}
-                    readOnly={Boolean(readOnly)}
-                ></Select>
-            </div>
+            <IListBox
+                label={t("profile:yourCountry")}
+                value={value as string}
+                defaultValue={t("profile:yourCountry")}
+                items={options}
+                className={className as string}
+                disabled={Boolean(readOnly)}
+                direction="top right"
+                onChange={onChangeHandler}
+            />
         );
     },
 );
